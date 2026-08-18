@@ -1,0 +1,466 @@
+/* ==========================================================================
+   Grupo Indufrial — Tarjeta digital (vCard)
+   Dark, modern, high-contrast design system
+   ========================================================================== */
+
+:root {
+  /* Brand core */
+  --ink-950: #060b16;      /* app background */
+  --ink-900: #0a1120;      /* card background */
+  --ink-850: #0f1830;      /* raised surface */
+  --ink-800: #141f3d;      /* raised surface, hover */
+  --ink-700: #1c2a4d;      /* borders on dark */
+  --ink-600: #2a3a63;      /* borders, lighter */
+
+  --brand-blue-900: #071c47;
+  --brand-blue-700: #123f8f;
+  --brand-blue-500: #1a56b8;
+  --brand-blue-300: #4d8fe0;
+
+  --accent-cyan: #26e0d1;
+  --accent-cyan-dim: #1ba89d;
+
+  --white: #ffffff;
+  --ink-text: #eaf0fb;      /* primary text on dark */
+  --ink-text-dim: #9fb0d1;  /* secondary text on dark */
+  --ink-text-faint: #6779a3;/* tertiary / captions */
+
+  --whatsapp: #22c55e;
+  --whatsapp-dim: #16a34a;
+
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 11px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 30px 80px -20px rgba(0, 0, 0, 0.65);
+  --shadow-cta: 0 12px 28px -8px rgba(34, 197, 94, 0.45);
+  --shadow-elev: 0 8px 22px -6px rgba(0, 0, 0, 0.5);
+
+  --font-display: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at 15% -10%, rgba(26, 86, 184, 0.35), transparent 45%),
+    radial-gradient(circle at 100% 15%, rgba(38, 224, 209, 0.10), transparent 40%),
+    var(--ink-950);
+  color: var(--ink-text);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 56px 16px;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ink-900);
+  border: 1px solid var(--ink-700);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding: 28px 28px 26px 28px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(38, 224, 209, 0.16), transparent 55%),
+    linear-gradient(160deg, var(--brand-blue-900) 0%, #081633 65%, var(--ink-900) 100%);
+  border-bottom: 1px solid var(--ink-700);
+}
+
+.hero__logo {
+  height: 30px;
+  display: block;
+  margin: 0 auto 22px auto;
+}
+
+.hero__avatar-wrap {
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 16px auto;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--brand-blue-500));
+  box-shadow: var(--shadow-elev);
+}
+
+.hero__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--ink-900);
+  background: var(--ink-800);
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.28;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.hero__role {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-top: 8px;
+}
+
+.hero__company {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-text-dim);
+  margin-top: 3px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(38, 224, 209, 0.10);
+  border: 1px solid rgba(38, 224, 209, 0.30);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.2px;
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+/* ==========================================================================
+   QUICK ACTIONS (Llamar / Correo / Contacto)
+   ========================================================================== */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 22px 24px 4px 24px;
+}
+
+.quick-actions__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 6px;
+  border-radius: var(--radius-md);
+  background: var(--ink-850);
+  border: 1px solid var(--ink-700);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-text-dim);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.quick-actions__item:active {
+  transform: scale(0.96);
+}
+
+.quick-actions__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent-cyan);
+}
+
+.quick-actions__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   CTA — WhatsApp (primary) & Agendar (secondary)
+   ========================================================================== */
+
+.cta-whatsapp,
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 24px 0 24px;
+  padding: 15px 18px;
+  border-radius: var(--radius-md);
+}
+
+.cta-whatsapp {
+  background: linear-gradient(135deg, var(--whatsapp) 0%, var(--whatsapp-dim) 100%);
+  box-shadow: var(--shadow-cta);
+}
+
+.cta-whatsapp__icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: white;
+}
+.cta-whatsapp__icon svg { width: 100%; height: 100%; }
+
+.cta-whatsapp__text {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+
+.cta-whatsapp__text small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 2px;
+}
+
+.cta-secondary {
+  background: var(--ink-850);
+  border: 1px solid var(--ink-700);
+  margin-top: 10px;
+}
+
+.cta-secondary__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--accent-cyan);
+}
+.cta-secondary__icon svg { width: 100%; height: 100%; }
+
+.cta-secondary__text {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-text);
+  line-height: 1.3;
+}
+
+.cta-secondary__text small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--ink-text-faint);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+
+.about {
+  padding: 22px 26px 6px 26px;
+  text-align: center;
+}
+
+.about p {
+  font-size: 12.5px;
+  color: var(--ink-text-dim);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   SECTION TITLES
+   ========================================================================== */
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.section-subtitle {
+  font-size: 11.5px;
+  color: var(--ink-text-faint);
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   CATALOGS
+   ========================================================================== */
+
+.catalogs {
+  padding: 26px 24px 8px 24px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 14px;
+  border-radius: var(--radius-md);
+  background: var(--ink-850);
+  border: 1px solid var(--ink-700);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.catalog-card:active { transform: scale(0.97); }
+
+.catalog-card--highlight {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(26, 86, 184, 0.22), rgba(38, 224, 209, 0.10));
+  border: 1px solid rgba(77, 143, 224, 0.4);
+}
+
+.catalog-card--highlight .catalog-card__icon { font-size: 20px; }
+
+.catalog-card__icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.catalog-card__label {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-text);
+  line-height: 1.3;
+}
+
+.catalog-card--highlight .catalog-card__label { flex: 1; margin-left: 4px; }
+
+.catalog-card__cta {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.2px;
+}
+
+.catalog-card--highlight .catalog-card__cta {
+  background: var(--accent-cyan);
+  color: var(--ink-950);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* State: PDF not uploaded yet.
+   Add class="catalog-card is-disabled" and remove href, or leave href pointing
+   to a file that doesn't exist yet — GitHub Pages will simply 404.
+   This visual state is optional but recommended until every PDF is live. */
+.catalog-card.is-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   SOCIAL (LinkedIn only)
+   ========================================================================== */
+
+.social {
+  padding: 8px 24px 26px 24px;
+}
+
+.social-linkedin {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 15px 18px;
+  border-radius: var(--radius-md);
+  background: var(--ink-850);
+  border: 1px solid var(--ink-700);
+}
+
+.social-linkedin__icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 102, 194, 0.18);
+  color: #4dabff;
+  padding: 8px;
+}
+.social-linkedin__icon svg { width: 100%; height: 100%; }
+
+.social-linkedin span {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-text);
+}
+
+.social-linkedin small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--ink-text-faint);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.footer {
+  padding: 22px 24px 26px 24px;
+  text-align: center;
+  border-top: 1px solid var(--ink-700);
+  background: var(--ink-950);
+}
+
+.footer__address {
+  font-size: 10.5px;
+  color: var(--ink-text-faint);
+  line-height: 1.6;
+}
+
+.footer__legal {
+  font-size: 9.5px;
+  color: #3d4a6b;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   RESPONSIVE — small phones
+   ========================================================================== */
+
+@media (max-width: 360px) {
+  .hero__name { font-size: 18.5px; }
+  .catalog-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+}
